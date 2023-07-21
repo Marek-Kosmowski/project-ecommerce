@@ -3,8 +3,7 @@ import {
   createAuthUserWithEmailAndPassword,
   signInAuthUserWithEmailAndPassword,
 } from '../../utils/firebase/firebase.utils';
-import { UserContext } from '../../contexts/user.context';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
 import './sign-in-form.styles.scss';
@@ -17,8 +16,6 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
-
-  const { setCurrentUser } = useContext(UserContext);
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -38,7 +35,6 @@ const SignInForm = () => {
         password
       );
 
-      setCurrentUser(user);
       resetFormFields();
     } catch (error) {
       alert('Wrong credentials');
