@@ -14,7 +14,11 @@ const DirectoryItem = ({ category }) => {
 
   return (
     <DirectoryItemContainer onClick={onNavigateHandler}>
-      <BackgroundImage imageUrl={imageUrl} />
+      <BackgroundImage
+        style={{
+          backgroundImage: `url(${imageUrl})`,
+        }}
+      />
       <Body>
         <h2>{title.toLocaleUpperCase()}</h2>
         <p>Show Now</p>
